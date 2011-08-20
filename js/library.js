@@ -1,4 +1,4 @@
-var library=[];
+var library = [];
 
 /* Reads all of the files in a directory */
 function indexFiles(files){
@@ -12,7 +12,42 @@ function indexFiles(files){
 		}
 	}
 	
+	saveLibrary();
 	updateView();
+}
+
+/* Check if the browser supports offline storage */
+function supportsLocalStorage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+
+/* Save the library so that we don't have to restore after each page refresh */
+function saveLibrary() {
+    if (!supportsLocalStorage()) {
+        // No native support for HTML 5 storage :(
+        alert("Upgrade your browser, bro.");
+        return false;
+    }
+    
+    console.log(JSON.stringify(library));
+    localStorage.setItem("browserbeats.library", JSON.stringify(library));
+}
+
+/* Load local library on page load if available */
+
+function loadLibrary() {
+    if (!supportsLocalStorage()) {
+        alert("Upgrade your browser, bro");
+        return false;
+    }
+    
+    library = JSON.parse(localStorage.getItem("browserbeats.library"));
+    
+    updateView();
 }
 
 /* Updates the view of the library */
@@ -42,3 +77,9 @@ function updateView() {
 		$(container).append($("<br/>"));
 	}
 }
+
+$(document).ready(function() {
+   loadLibrary(); 
+});
+
+/* Don't edit below this line */
