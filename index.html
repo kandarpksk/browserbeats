@@ -8,6 +8,8 @@
         <!--[if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+		
+		<script src="library.js"></script>
     </head>
     
     <body>
@@ -17,6 +19,19 @@
                 <p class="lead">A lightweight, browser-based music player for your computer.  No need to upload any of your music.</p>
             </div>
         </header>
+		
+		<section class="container">
+			<div class="row">
+				<div class="span8 columns">
+					<p>Select a folder for indexing:
+						<input type="file" webkitdirectory="true" onchange="indexFiles(this.files)" />
+					</p>
+				</div>
+			</div>
+		</section>
+		
+		<section class="container" id="library">
+		</section>
         
         <section class="container">
             <div class="row">
