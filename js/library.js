@@ -45,7 +45,10 @@ function loadLibrary() {
         return false;
     }
     
-    library = JSON.parse(localStorage.getItem("browserbeats.library"));
+    var lib = JSON.parse(localStorage.getItem("browserbeats.library"));
+    if (lib != null ) {
+        library = lib;
+    }
     
     updateView();
 }
