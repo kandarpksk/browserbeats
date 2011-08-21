@@ -69,6 +69,9 @@ function Queue(){
 function enqueue() {
 	queue.add(this.id);
 	queue.draw();
+	if (queue.length() == 1) {
+		changeSong(this.id);
+	}
 }
 
 /* Removes "this" song from the queue */
