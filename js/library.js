@@ -336,6 +336,8 @@ function updateVolumeControl() {
 $(document).ready(function() { 
     $("#library").tablesorter();
     
+    init();
+    
   
 });
 

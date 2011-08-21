@@ -5,6 +5,12 @@
 .f-right { float:right;}
 .f-left { float:left; }
 
+.topbar .lead {
+    float:left;
+    color: #BFBFBF;
+    margin:10px 40px;
+}
+
 footer .container {
     margin-bottom:50px;
 }
@@ -13,8 +19,8 @@ footer .container {
 	position: fixed;
 	bottom:0px;
 	right:0px;
-	border: 2px solid #4c4c4c; 
-	background-color: #666666; 
+	border: 2px solid #222; 
+	background-color: #222; 
 	width: 100%; 
 	height: 30px;
 	line-height: 30px;
@@ -23,34 +29,29 @@ audio#player1 {
 	border: 2px solid #FFFFFF; /* masked against background until audio has focus */
 }
 #controls input { 
-	border: 2px solid #666666; /* masked against background until input has focus*/
-	position: absolute;
+	border: 2px solid #222; /* masked against background until input has focus*/
 	background-position: center center;
 	background-repeat: no-repeat;
+	float:left;
 }
 audio#player1:focus, audio#player1:active, audio#player1:hover, 
 input:focus, input:hover, input:active { 
 	border-color: #ffff00 !important; /* yellow */
 }
 input#playpause {
-	top: 0px;
-	left: 0px;
 	width: 34px;
 	height: 30px;
 	background-color: transparent;
 	background-image: url('../images/audio_play.gif');
 	color: transparent;
-	border-right-color: #848484; 
+	border-right-color: #222;
+	margin-left:10px;
 }
-#seekBar { 
-	top: 0px;
-	left: 120px;
+#seekBar {
 	width: 200px;
 	height: 26px;
 }
 input#seekBack {
-	top: 0px;
-	left: 40px;
 	width: 34px;
 	height: 30px;
 	background-color: transparent;
@@ -58,8 +59,6 @@ input#seekBack {
 	color: transparent;
 }
 input#seekForward {
-	top: 0px;
-	left: 80px;
 	width: 34px;
 	height: 30px;
 	background-color: transparent;
@@ -67,35 +66,19 @@ input#seekForward {
 	color: transparent;
 }
 span#timer { /* contains both span#currentTime and span#duration */
-	position: absolute;
-	left: 335px;
 	width: 80px;
 	color: #ffffff;
+	float:left;
 }
 input#muteButton { 
-	left: 405px; 
-	top: 0px;
 	width: 34px;
 	height: 30px;
 	background-color: transparent;
 	background-image: url('../images/audio_volume.gif');
 	color: transparent;
-	border-left-color: #848484; 
-}
-input#volumeControl {
-	/* not used, but here for future reference */
-	display: none;
-	left: 395px;
-	top: -105px;
-	height: 100px;
-	width: 30px;
-	background-color: #666666;
-	border: 2px solid #4c4c4c;
-	color: #ffffff;
+	border-left-color: #222; 
 }
 input#volumeUp { 
-	top: 0px;
-	left: 440px;
 	width: 34px;
 	height: 30px;
 	background-color: transparent;
