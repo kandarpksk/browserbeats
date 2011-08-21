@@ -61,7 +61,7 @@
         	</div>
         	<div class="row">
         	    <div class="span10 columns">
-        	        <button id="addToButton" style="display:none;" class="btn primary" onclick="$('#addTo').show()">Add more</button>
+        	        <button id="addToButton" style="display:none;" class="btn primary" onclick="modalToggle();">Add more</button>
         	    </div>
         	    <div class="span6 columns">
         	    
@@ -75,7 +75,7 @@
 		            <div id="addTo" class="modal">
 		                <div class="modal-header">
 		                    <h3>Add to Library</h3>
-		                    <a href="#" class="close">&times;</a>
+		                    <a href="#" onclick="modalToggle();" class="close">&times;</a>
 		                </div>
 		                <div class="modal-body">
                             <p>Select a folder to find music and it to your library.</p>
