@@ -50,7 +50,7 @@ function addSong(entry) {
 	container.append($("<div></div>").addClass("span2 columns").text(entry.artist));
 	container.append($("<div></div>").addClass("span2 columns").text(entry.title));
 	container.append($("<div></div>").addClass("span2 columns").text(entry.album));
-	container.click(play);
+	container.click(enqueue);
 	$(view).append(container);
 }
 
@@ -73,18 +73,9 @@ function updateView() {
 		container.append($("<div></div>").addClass("span2 columns").text(entry.artist));
 		container.append($("<div></div>").addClass("span2 columns").text(entry.title));
 		container.append($("<div></div>").addClass("span2 columns").text(entry.album));
-		container.click(play);
+		container.click(enqueue);
 		$(view).append(container);
 	}
-}
-
-/* Play a song */
-function play(){
-	var player = document.getElementById("player");
-	
-	player.src = this.id;
-	player.play();
-	return false;
 }
 
 /* Don't edit below this line */

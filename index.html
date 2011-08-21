@@ -8,6 +8,7 @@
         <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
 		<script src="https://raw.github.com/aadsm/JavaScript-ID3-Reader/master/dist/id3-minimized.js"></script>
 		<script src="js/library.js"></script>
+		<script src="js/play.js"></script>
         
         <!--[if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -45,7 +46,9 @@
                 <div class="span8 columns">
                 </div>
                 <div class="span8 columns">
-                    <audio id="player" src="music/Jake Dubber - June - 02 Leviathan.mp3" controls="controls">You aren't cool enough to use this, sorry.</audio>
+					<button type="button" onclick="pause()" class="btn" >Play/Pause</button>
+					<button type="button" onclick="next()" class="btn" >Next</button>
+                    <audio id="player" src="music/Jake Dubber - June - 02 Leviathan.mp3" controls="controls" onended="songEnd()">You aren't cool enough to use this, sorry.</audio>
                 </div>
             </div>
         </section>
