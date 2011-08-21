@@ -1,4 +1,4 @@
-var library = [];
+var library = {};
 
 /* Reads all of the files in a directory */
 function indexFiles(files){
@@ -27,7 +27,7 @@ function indexFiles(files){
 					entry.title = ID3.getTag(fileurl, "title");
 					entry.album = ID3.getTag(fileurl, "album");
 					
-					library.push(entry);
+					library[fileurl] = entry;
 					addSong(entry);
 				},{dataReader: FileAPIReader(file)});
 			})(url);
@@ -52,25 +52,6 @@ function addSong(entry) {
 	setTimeout(function() {
 	    $("#library").trigger("sorton",[sorting]); 
 	}, 1000);
-	
-}
-
-/* Updates the view of the library */
-function updateView() {
-	var view = "#library-body";
-	
-	$(view).empty();
-		
-	for (var i = 0; i < library.length; i++) {
-		var entry = library[i];
-		
-		var container = $("<tr id=\"" + entry.url + "\" />");
-		container.append($("<td></td>").text(entry.artist));
-		container.append($("<td></td>").text(entry.title));
-		container.append($("<td></td>").text(entry.album));
-		container.click(enqueue);
-		$(view).append(container);
-	}
 	
 }
 
@@ -371,7 +352,6 @@ function updateVolumeControl() {
 	//not used...
 	volumeControl.value = audio.volume;
 }
-
 
 $(document).ready(function() { 
     $("#library").tablesorter();
