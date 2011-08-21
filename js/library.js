@@ -2,6 +2,9 @@ var library = {};
 
 /* Reads all of the files in a directory */
 function indexFiles(files){
+    
+    $("#addTo").hide();
+    $("#addToButton").show();
 
 	for (var i = 0; i < files.length; i++) {
 		var file = files[i];
@@ -33,6 +36,12 @@ function indexFiles(files){
 			})(url);
 		}
 	}
+	
+	var sorting = [[1,0]]; 
+	
+	setTimeout(function() {
+	    $("#library").trigger("sorton",[sorting]); 
+	}, 1000);
 }
 
 function addSong(entry) {
@@ -46,13 +55,7 @@ function addSong(entry) {
 	$(view).append(container);
 	
 	$("#library").trigger("update");
-	
-	var sorting = [[1,0]]; 
-	
-	setTimeout(function() {
-	    $("#library").trigger("sorton",[sorting]); 
-	}, 1000);
-	
+		
 }
 
 var audio;

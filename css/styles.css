@@ -1,3 +1,7 @@
+h2 {
+    margin:10px 0;
+}
+
 .a-right { text-align:right;}
 .a-center { text-align:center;}
 .a-left { text-align:left;}
@@ -11,8 +15,15 @@
     margin:10px 40px;
 }
 
+#library { width:95%; }
+#addToButton {
+    margin:0 35%;
+    width:200px;
+}
+    
 footer .container {
     margin-bottom:50px;
+    margin-top:20px;
 }
 
 footer .signature {
@@ -74,6 +85,7 @@ input#seekForward {
 }
 span#timer { /* contains both span#currentTime and span#duration */
 	width: 80px;
+	padding-left:10px;
 	color: #ffffff;
 	float:left;
 }
