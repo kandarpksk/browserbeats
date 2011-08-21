@@ -53,13 +53,17 @@ function Queue(){
 		
 		for (var i = 0; i < this.length(); i++) {
 			var tags = library[this.items[i]];
-			var div = $("<div id=\"" + i + "\"></div>");
+			var div = $("<div></div>");
 			div.addClass("row");
 			div.text(tags.artist + " - " + tags.title);
 			if (i == this.cno) {
 				div.css("font-weight", "bold");
+			} else {
+				var link = $("<a id=\"" + i + "\" href=\"#\">&times;</a>");
+				link.click(dequeue);
+				link.css("margin-left", "5px");
+				div.append(link);
 			}
-			div.click(dequeue);
 			container.append(div);
 		}
 	}
