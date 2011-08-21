@@ -3,8 +3,7 @@ var library = {};
 /* Reads all of the files in a directory */
 function indexFiles(files){
     
-    $("#addTo").hide();
-    $("#addToButton").show();
+    modalToggle();
 
 	for (var i = 0; i < files.length; i++) {
 		var file = files[i];
@@ -43,6 +42,12 @@ function indexFiles(files){
 	    $("#library").trigger("sorton",[sorting]); 
 	}, 1000);
 }
+
+function modalToggle() {
+    $("#addTo").toggle();
+    $("#addToButton").toggle();
+}
+
 
 function addSong(entry) {
 	var view = "#library-body";
