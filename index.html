@@ -7,6 +7,7 @@
         
         <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
 		<script src="https://raw.github.com/aadsm/JavaScript-ID3-Reader/master/dist/id3-minimized.js"></script>
+		<script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
 		<script src="js/library.js"></script>
         
         <!--[if lt IE 9]>
@@ -37,7 +38,21 @@
 			</div>
 		</section>
 		
-		<section class="container" id="library">
+		<section class="container">
+		    <div class="row">
+		        <div class="span8 columns">
+		            <table id="library" class="common-table zebra-striped span8 columns">
+        		        <thead>
+        		            <th class="yellow">Title</th>
+        		            <th class="blue">Artist</th>
+        		            <th class="green">Album</th>
+        		        </thead>
+        		        <tbody id="library-body">
+		            
+        		        </tbody>
+        		    </table>
+        		</div>
+        	</div>
 		</section>
         
         <section class="container">
