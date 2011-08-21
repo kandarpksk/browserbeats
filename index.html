@@ -9,7 +9,7 @@
 		<script src="https://raw.github.com/aadsm/JavaScript-ID3-Reader/master/dist/id3-minimized.js"></script>
 		<script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
 		<script src="js/library.js"></script>
-		<script src="js/play.js"></script>
+		<script src="js/queue.js"></script>
         
         <!--[if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -53,7 +53,7 @@
 		    <div class="row">
 		        <div class="span10 columns">
 		            <h2>Library</h2>
-		            <table id="library" class="common-table zebra-striped span8 columns">
+		            <table id="library" class="common-table zebra-striped span10 columns">
         		        <thead>
         		            <th class="yellow">Title</th>
         		            <th class="blue">Artist</th>
@@ -64,8 +64,10 @@
         		        </tbody>
         		    </table>
         		</div>
-				<div class="span6 columns" id="queue">
+				<div class="span6 columns">
 				    <h2>Play Queue</h2>
+					<div id="queue" class="span6 columns">
+					</div>
 				</div>
         	</div>
 		</section>

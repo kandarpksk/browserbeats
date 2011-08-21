@@ -123,7 +123,8 @@ function init() {
 		seekBack.setAttribute('id','seekBack');
 		seekBack.setAttribute('value','');
 		seekBack.setAttribute('title','Previous');
-		seekBack.setAttribute('onclick','previous()');
+		seekBack.setAttribute('onclick','playPrevious()');
+		seekBack.setAttribute('onclick','playPrevious()');
 		seekBack.setAttribute('accesskey','R');
 		player.appendChild(seekBack);
 		seekForward = document.createElement('input');
@@ -131,7 +132,7 @@ function init() {
 		seekForward.setAttribute('id','seekForward');
 		seekForward.setAttribute('value','');
 		seekForward.setAttribute('title','Next');
-		seekForward.setAttribute('onclick','next()');
+		seekForward.setAttribute('onclick','playNext()');
 		seekForward.setAttribute('accesskey','F');
 		player.appendChild(seekForward);
 		if (hasSlider == true) { 
@@ -221,7 +222,9 @@ function showTime(time,elem,hasSlider) {
 	if (elem == currentTimeContainer) elem.innerHTML = output;
 	else elem.innerHTML = ' / ' + output;
 }
-function playAudio() { 
+
+/* Pause the song if it's playing or play if it's paused */
+function playAudio() {
 	if (audio.paused || audio.ended) { 
 		audio.play();
 		playpause.setAttribute('title','Pause');
@@ -233,6 +236,48 @@ function playAudio() {
 		playpause.style.backgroundImage="url('images/audio_play.gif')";
 	}
 }
+
+/* Plays the next song in the queue */
+function playNext() {
+	var url = queue.next();
+	changeSong(url);
+	queue.draw();
+}
+
+/* Plays the previous song in the queue */
+function playPrevious() {
+	var url = queue.previous();
+	changeSong(url);
+	queue.draw();
+}
+
+/* Changes the song in the player */
+function changeSong(url) {
+	audio.src = url;
+	if (audio.paused || audio.ended) {
+		playpause.setAttribute('title', 'Pause');
+		playpause.style.backgroundImage="url('images/audio_pause.gif')";
+	}
+	audio.play();
+	$("#nowplaying").text("Playing: " + library[url].artist + " - " + library[url].title);
+	
+	duration = Math.floor(audio.duration);
+	
+	if (isNaN(duration)) { 
+		audio.addEventListener('loadedmetadata',function (e) { 
+			duration = audio.duration;
+			showTime(duration,durationContainer,hasSlider);
+			seekBar.setAttribute('min',0);
+			seekBar.setAttribute('max',duration);
+		},false);
+	}
+	else { 
+		showTime(duration,durationContainer,hasSlider);
+		seekBar.setAttribute('min',0);
+		seekBar.setAttribute('max',duration);
+	}
+}
+
 function setupSeekBar() { 
 	seekBar.max = video.duration;
 }
