@@ -11,8 +11,15 @@
     margin:10px 40px;
 }
 
+#library { width:95%; }
+#addToButton {
+    margin:0 35%;
+    width:200px;
+}
+    
 footer .container {
     margin-bottom:50px;
+    margin-top:20px;
 }
 
 footer .signature {

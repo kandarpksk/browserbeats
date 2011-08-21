@@ -2,6 +2,9 @@ var library = {};
 
 /* Reads all of the files in a directory */
 function indexFiles(files){
+    
+    $("#addTo").hide();
+    $("#addToButton").show();
 
 	for (var i = 0; i < files.length; i++) {
 		var file = files[i];
