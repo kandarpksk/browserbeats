@@ -36,7 +36,7 @@ audio#player1 {
 }
 audio#player1:focus, audio#player1:active, audio#player1:hover, 
 input:focus, input:hover, input:active { 
-	border-color: #ffff00 !important; /* yellow */
+	border-color: white !important; /* yellow */
 }
 input#playpause {
 	width: 34px;
