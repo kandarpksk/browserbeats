@@ -42,7 +42,7 @@ function addSong(entry) {
 	container.append($("<td></td>").text(entry.title));
 	container.append($("<td></td>").text(entry.artist));
 	container.append($("<td></td>").text(entry.album));
-	container.click(play);
+	container.click(enqueue);
 	$(view).append(container);
 	
 	$("#library").trigger("update");
@@ -68,19 +68,10 @@ function updateView() {
 		container.append($("<td></td>").text(entry.artist));
 		container.append($("<td></td>").text(entry.title));
 		container.append($("<td></td>").text(entry.album));
-		container.click(play);
+		container.click(enqueue);
 		$(view).append(container);
 	}
 	
-}
-
-/* Play a song */
-function play(){
-	var player = document.getElementById("player");
-	
-	player.src = this.id;
-	player.play();
-	return false;
 }
 
 $(document).ready(function() { 
