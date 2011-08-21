@@ -36,6 +36,12 @@ function indexFiles(files){
 			})(url);
 		}
 	}
+	
+	var sorting = [[1,0]]; 
+	
+	setTimeout(function() {
+	    $("#library").trigger("sorton",[sorting]); 
+	}, 1000);
 }
 
 function addSong(entry) {
@@ -49,13 +55,7 @@ function addSong(entry) {
 	$(view).append(container);
 	
 	$("#library").trigger("update");
-	
-	var sorting = [[1,0]]; 
-	
-	setTimeout(function() {
-	    $("#library").trigger("sorton",[sorting]); 
-	}, 1000);
-	
+		
 }
 
 var audio;
