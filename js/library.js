@@ -68,6 +68,7 @@ var currentTime;
 var duration;
 var durationContainer;
 var muteButton;
+var nowplaying;
 // var volumeControl; //not used
 //while it's tempting to crank the volume by default, 
 //doing so can drown out screen readers, so it's better to keep it moderate
@@ -121,16 +122,16 @@ function init() {
 		seekBack.setAttribute('type','button');
 		seekBack.setAttribute('id','seekBack');
 		seekBack.setAttribute('value','');
-		seekBack.setAttribute('title','Rewind ' + seekInterval + ' seconds');
-		seekBack.setAttribute('onclick','seekAudio(this)');
+		seekBack.setAttribute('title','Previous');
+		seekBack.setAttribute('onclick','previous()');
 		seekBack.setAttribute('accesskey','R');
 		player.appendChild(seekBack);
 		seekForward = document.createElement('input');
 		seekForward.setAttribute('type','button');
 		seekForward.setAttribute('id','seekForward');
 		seekForward.setAttribute('value','');
-		seekForward.setAttribute('title','Forward ' + seekInterval + ' seconds');
-		seekForward.setAttribute('onclick','seekAudio(this)');
+		seekForward.setAttribute('title','Next');
+		seekForward.setAttribute('onclick','next()');
 		seekForward.setAttribute('accesskey','F');
 		player.appendChild(seekForward);
 		if (hasSlider == true) { 
@@ -157,33 +158,8 @@ function init() {
 		muteButton.setAttribute('value','');
 		muteButton.setAttribute('title','Mute');		
 		muteButton.setAttribute('onclick','toggleMute()');
-		//muteButton.setAttribute('onmouseover','showVolume()'); //not used
-		//muteButton.setAttribute('onfocus','showVolume()'); //not used
-		//muteButton.setAttribute('onmouseout','hideVolume()'); //not used
-		//muteButton.setAttribute('onblur','hideVolume()'); //not used
 		muteButton.setAttribute('accesskey','M');
 		player.appendChild(muteButton);
-
-		/* 
-		//This is here for future reference. 
-		//Since vertical sliders are not well-rendered by browsers yet 
-		//we'll replace that for now with volume up and down buttons
-		//all volumeControl code is preserved though for possible future use
-		volumeControl = document.createElement('input');
-		volumeControl.setAttribute('type','range');
-		volumeControl.setAttribute('id','volumeControl');
-		volumeControl.setAttribute('max','1');
-		volumeControl.setAttribute('width','30');
-		volumeControl.setAttribute('height','100');
-		volumeControl.setAttribute('step','any');
-		volumeControl.setAttribute('onchange','updateVolume()');
-		volumeControl.setAttribute('onmouseover','setVolumeFocus()');
-		volumeControl.setAttribute('onfocus','setVolumeFocus()');
-		volumeControl.setAttribute('onmouseout','unsetVolumeFocus()');
-		volumeControl.setAttribute('onblur','unsetVolumeFocus()');
-		volumeControl.setAttribute('tabindex','0');
-		volumeControl.setAttribute('aria-labelledby','volumeLabel');
-		*/
 		
 		volumeUp = document.createElement('input');
 		volumeUp.setAttribute('type','button');
@@ -202,6 +178,10 @@ function init() {
 		volumeDown.setAttribute('onclick',"updateVolume('down')");
 		volumeDown.setAttribute('accesskey','D');
 		player.appendChild(volumeDown);
+		
+		nowplaying = document.createElement('span');
+		nowplaying.setAttribute('id', "nowplaying");
+		player.appendChild(nowplaying);
 		
 		//get and set default values 
 		audio.volume = volume;

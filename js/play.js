@@ -16,6 +16,7 @@ function play(){
 	queue.unshift(this.id);
 	audio.src = this.id;
 	audio.play();
+	
 	drawQueue();
 }
 
@@ -29,6 +30,7 @@ function pause(){
 		audio.play();
 		playing = true;
 	}
+
 	drawQueue();
 }
 
@@ -40,6 +42,22 @@ function enqueue(){
 		audio.src = this.id;
 		audio.play();
 		playing = true;
+		
+		duration = Math.floor(audio.duration);
+		
+		if (isNaN(duration)) { 
+			audio.addEventListener('loadedmetadata',function (e) { 
+				duration = audio.duration;
+				showTime(duration,durationContainer,hasSlider);
+				seekBar.setAttribute('min',0);
+				seekBar.setAttribute('max',duration);
+			},false);
+		}
+		else { 
+			showTime(duration,durationContainer,hasSlider);
+			seekBar.setAttribute('min',0);
+			seekBar.setAttribute('max',duration);
+		}
 	}
 	drawQueue();
 }
@@ -61,6 +79,11 @@ function next(){
 	drawQueue();
 }
 
+/* Play the previous song in the queue */
+function previous() {
+    
+}
+
 /* Callback at the end of a song */
 function songEnd(){
 	next();
@@ -71,15 +94,13 @@ function drawQueue() {
 	
 	queue_div.empty();
 	
+	queue_div.append($("<h2>Play Queue</h2>"));
+	
 	for (var i = 0; i < queue.length; i++) {
 		var tags = library[queue[i]];
 		var txt = tags.artist + " - " + tags.title;
 		if (i == 0) {
-			if (playing) {
-				txt = "Playing: " + txt;
-			} else {
-				txt = "Paused: " + txt;
-			}
+		    $("#nowplaying").text("Now playing: " + txt);
 		}
 		
 		queue_div.append($("<div></div>").addClass("row").text(txt));
