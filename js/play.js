@@ -1,59 +1,58 @@
 var queue = [];
-var player;
 var playing = false;
 
-function getPlayer() {
-	if (player == null) {
-		player = document.getElementById("player");
+function getaudio() {
+	if (audio == null) {
+		audio = document.getElementById("audio");
 	}
 }
 
 /* Play a song */
 function play(){
-	getPlayer();
+	getaudio();
 	if (playing) {
 		queue.shift();
 	}
 	queue.unshift(this.id);
-	player.src = this.id;
-	player.play();
+	audio.src = this.id;
+	audio.play();
 }
 
-/* Pauses the player if playing, resumes if paused */
+/* Pauses the audio if playing, resumes if paused */
 function pause(){
-	getPlayer();
+	getaudio();
 	if (playing) {
-		player.pause();
+		audio.pause();
 		playing = false;
 	} else {
-		player.play();
+		audio.play();
 		playing = true;
 	}
 }
 
 /* Adds a song to the queue and plays it if the queue was empty */
 function enqueue(){
-	getPlayer();
+	getaudio();
 	queue.push(this.id);
 	if (queue.length == 1) {
-		player.src = this.id;
-		player.play();
+		audio.src = this.id;
+		audio.play();
 		playing = true;
 	}
 }
 
 /* Play the next song in the queue */
 function next(){
-	getPlayer();
+	getaudio();
 	if (queue.length > 1) {
 		queue.shift();
 		var url = queue[0];
-		player.src = url;
-		player.play();
+		audio.src = url;
+		audio.play();
 		playing = true;
 	} else if (queue.length > 0) {
 		queue.shift();
-		player.pause();
+		audio.pause();
 		playing = false;
 	}
 }

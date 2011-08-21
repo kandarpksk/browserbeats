@@ -4,3 +4,116 @@
 
 .f-right { float:right;}
 .f-left { float:left; }
+
+#controls { 
+	position: relative;
+	border: 2px solid #4c4c4c; 
+	background-color: #666666; 
+	width: 510px; 
+	height: 30px;
+	line-height: 30px;
+}
+audio#player1 { 
+	border: 2px solid #FFFFFF; /* masked against background until audio has focus */
+}
+#controls input { 
+	border: 2px solid #666666; /* masked against background until input has focus*/
+	position: absolute;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+audio#player1:focus, audio#player1:active, audio#player1:hover, 
+input:focus, input:hover, input:active { 
+	border-color: #ffff00 !important; /* yellow */
+}
+input#playpause {
+	top: 0px;
+	left: 0px;
+	width: 34px;
+	height: 30px;
+	background-color: transparent;
+	background-image: url('../images/audio_play.gif');
+	color: transparent;
+	border-right-color: #848484; 
+}
+#seekBar { 
+	top: 0px;
+	left: 120px;
+	width: 200px;
+	height: 26px;
+}
+input#seekBack {
+	top: 0px;
+	left: 40px;
+	width: 34px;
+	height: 30px;
+	background-color: transparent;
+	background-image: url('../images/audio_rewind.gif');
+	color: transparent;
+}
+input#seekForward {
+	top: 0px;
+	left: 80px;
+	width: 34px;
+	height: 30px;
+	background-color: transparent;
+	background-image: url('../images/audio_forward.gif');
+	color: transparent;
+}
+span#timer { /* contains both span#currentTime and span#duration */
+	position: absolute;
+	left: 335px;
+	width: 80px;
+	color: #ffffff;
+}
+input#muteButton { 
+	left: 405px; 
+	top: 0px;
+	width: 34px;
+	height: 30px;
+	background-color: transparent;
+	background-image: url('../images/audio_volume.gif');
+	color: transparent;
+	border-left-color: #848484; 
+}
+input#volumeControl {
+	/* not used, but here for future reference */
+	display: none;
+	left: 395px;
+	top: -105px;
+	height: 100px;
+	width: 30px;
+	background-color: #666666;
+	border: 2px solid #4c4c4c;
+	color: #ffffff;
+}
+input#volumeUp { 
+	top: 0px;
+	left: 440px;
+	width: 34px;
+	height: 30px;
+	background-color: transparent;
+	background-image: url('../images/audio_volumeUp.gif');
+	color: transparent;
+}
+input#volumeDown { 
+	top: 0px;
+	left: 475px;
+	width: 34px;
+	height: 30px;
+	background-color: transparent;
+	background-image: url('../images/audio_volumeDown.gif');
+	color: transparent;
+}
+.offscreen { 
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+audio#player1 { 
+	height: 1px;
+}
