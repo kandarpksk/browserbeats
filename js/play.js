@@ -17,6 +17,7 @@ function play(){
 	queue.unshift(this.id);
 	player.src = this.id;
 	player.play();
+	drawQueue();
 }
 
 /* Pauses the player if playing, resumes if paused */
@@ -29,6 +30,7 @@ function pause(){
 		player.play();
 		playing = true;
 	}
+	drawQueue();
 }
 
 /* Adds a song to the queue and plays it if the queue was empty */
@@ -40,6 +42,7 @@ function enqueue(){
 		player.play();
 		playing = true;
 	}
+	drawQueue();
 }
 
 /* Play the next song in the queue */
@@ -56,11 +59,32 @@ function next(){
 		player.pause();
 		playing = false;
 	}
+	drawQueue();
 }
 
 /* Callback at the end of a song */
 function songEnd(){
 	next();
+}
+
+function drawQueue() {
+	var queue_div = $("#queue");
+	
+	queue_div.empty();
+	
+	for (var i = 0; i < queue.length; i++) {
+		var tags = library[queue[i]];
+		var txt = tags.artist + " - " + tags.title;
+		if (i == 0) {
+			if (playing) {
+				txt = "Playing: " + txt;
+			} else {
+				txt = "Paused: " + txt;
+			}
+		}
+		
+		queue_div.append($("<div></div>").addClass("row").text(txt));
+	}
 }
 
 /* Don't edit below this line */
