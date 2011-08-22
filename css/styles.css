@@ -36,7 +36,7 @@ footer .signature span {
     margin-top:5px;
 }
 
-section.main { min-height:700px;}
+section.main { min-height:700px; margin-top:50px;}
 
 #controls { 
 	position: fixed;
