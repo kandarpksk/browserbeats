@@ -6,29 +6,29 @@
         <link rel="stylesheet" href="css/styles.css">
         
         <script src="js/lib/jquery-1.5.2.min.js"></script> 
-		<script src="js/lib/id3.min.js"></script>
-		<script src="js/lib/jquery.tablesorter.min.js"></script>
-		<script src="js/library.js"></script>
-		<script src="js/queue.js"></script>
+	<script src="js/lib/id3.min.js"></script>
+	<script src="js/lib/jquery.tablesorter.min.js"></script>
+	<script src="js/library.js"></script>
+	<script src="js/queue.js"></script>
         
         <!--[if lt IE 9]>
             <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-		
     </head>
     
     <body>
         <header>
             <div class="topbar">
-            <div class="container">
-                <h3><a href="#">Browser Beats</a></h3>
-            </div>
+		    <div class="container">
+			<h3><a href="#">Browser Beats (hacked together by <a href="//twitter.com/bobbyshaw">Tom Robertshaw</a> and <a href="//twitter.com/tgerulaitis">Tomas Gerulaitis</a>)</a></h3>
+		    </div>
             </div>
         </header>
 				
         <section class="container">
             <div class="row">
                 <div class="span8 columns">
+			<!-- check this -->
                 </div>
                 <div class="span8 columns">
                     <audio id="player" src="" onended="songEnd()">You aren't cool enough to use this, sorry.</audio>
@@ -37,66 +37,57 @@
             </div>
         </section>
 		
-		<section class="container main">
-		    <div class="row">
-		        <div class="span10 columns">
-		            <h2>Library</h2>
-		            <table id="library" class="common-table zebra-striped span10 columns">
-        		        <thead>
-        		            <th class="yellow">Title</th>
-        		            <th class="blue">Artist</th>
-        		            <th class="green">Album</th>
-        		        </thead>
-        		        <tbody id="library-body">
-		            
-        		        </tbody>
-        		    </table>
-        		</div>
-				<div class="span6 columns">
-				    <h2>Play Queue</h2>
-					<div id="queue" class="span6 columns">
-					</div>
+	<section class="container main">
+		<div class="row">
+			<div class="span10 columns">
+			    <h2>Library</h2>
+			    <table id="library" class="common-table zebra-striped span10 columns">
+				<thead>
+				    <th class="yellow">Title</th>
+				    <th class="blue">Artist</th>
+				    <th class="green">Album</th>
+				</thead>
+				<tbody id="library-body">
+
+				</tbody>
+			    </table>
+			</div>
+			<div class="span6 columns">
+			    <h2>Play Queue</h2>
+				<div id="queue" class="span6 columns">
 				</div>
-        	</div>
-        	<div class="row">
-        	    <div class="span10 columns">
-        	        <button id="addToButton" style="display:none;" class="btn primary" onclick="modalToggle();">Add more</button>
-        	    </div>
-        	    <div class="span6 columns">
-        	    
-        	    </div>
-        	</div>
-		</section>
-		
-		<section class="container">
-		    <div class="row">
-		        <div class="span8 columns">
-		            <div id="addTo" class="modal">
-		                <div class="modal-header">
-		                    <h3>Add to Library</h3>
-		                    <a href="#" onclick="modalToggle();" class="close">&times;</a>
-		                </div>
-		                <div class="modal-body">
-                            <p>Select a folder to find music and add it to your library.</p>
-        				</div>
-        				<div class="modal-footer">
-    						<input type="file" multiple="" webkitdirectory="true" onchange="indexFiles(this.files)" />
-        				</div>
-		            </div>
-		        </div>
+			</div>
+		</div>
+
+		<div class="row">
+		    <div class="span10 columns">
+			<button id="addToButton" style="display:none;" class="btn primary" onclick="modalToggle();">Add more</button>
 		    </div>
-		    
-		</section>
-        
-        <footer>
-            <div class="container">
-                <p class="signature">
-			<span class="f-left">
-				Hacked together by <a href="//twitter.com/bobbyshaw">Tom Robertshaw</a> and <a href="//twitter.com/tgerulaitis">Tomas Gerulaitis</a>.
-			</span>
-		</p>
-            </div>
-        </footer>
+		    <div class="span6 columns">
+			<!-- check this -->
+		    </div>
+		</div>
+	</section>
+		
+	<section class="container">
+	    <div class="row">
+		<div class="span8 columns">
+		    <div id="addTo" class="modal">
+			<div class="modal-header">
+			    <h3>Add to Library</h3>
+			    <a href="#" onclick="modalToggle();" class="close">&times;</a>
+			</div>
+			<div class="modal-body">
+		    <p>Select a folder to find music and add it to your library.</p>
+				</div>
+				<div class="modal-footer">
+					<input type="file" multiple="" webkitdirectory="true" onchange="indexFiles(this.files)" />
+				</div>
+		    </div>
+		</div>
+	    </div>
+	</section>
+
         <script type="text/javascript"> 
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-6428376-2']);
